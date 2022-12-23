@@ -17,11 +17,12 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["./src/components/*"],
-      "@/layouts/*": ["./src/layouts"],
-      "@/helpers/*": ["./src/helpers"],
-      "@/pages/*": ["./src/pages"],
-      "@/styles/*": ["./src/styles"],
-      "@/config/*": ["./config"]
+      "@/layouts/*": ["./src/layouts/*"],
+      "@/helpers/*": ["./src/helpers/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/homepages/*": ["src/pages-modules/home-pages/*"],
+      "@/config/*": ["./config/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -1,10 +1,11 @@
-import Card from "@/components/Card/Card";
+import DoctorSection from "src/pages-modules/home-pages/doctor-section/doctor.section";
+import FilterSection from "src/pages-modules/home-pages/filter-section/filter.section";
 
 export default function Home() {
   return (
-    <section>
-      <h1 className="font-semibold text-[20px]">TEST</h1>
-      <Card />
-    </section>
+    <main>
+      <FilterSection />
+      <DoctorSection />
+    </main>
   );
 }
