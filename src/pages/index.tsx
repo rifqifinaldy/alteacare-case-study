@@ -1,10 +1,10 @@
-import Head from "next/head";
-import Card from "src/components/Card/Card";
+import Card from "@/components/Card/Card";
 
 export default function Home() {
   return (
-    <main>
+    <section>
+      <h1 className="font-semibold text-[20px]">TEST</h1>
       <Card />
-    </main>
+    </section>
   );
 }
