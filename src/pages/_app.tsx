@@ -6,6 +6,7 @@ import Layout from "@/layouts/layout";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      {/* Meta Tags */}
       <Head>
         <title>Alteacare - Case Study- Rifqi Finaldy</title>
         <meta
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      {/* Actual UI/Page/Components */}
       <Layout>
         <Component {...pageProps} />
       </Layout>
