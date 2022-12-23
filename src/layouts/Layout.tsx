@@ -1,11 +1,18 @@
 import { FC, ReactNode } from "react";
+import styles from "./layout.module.css";
 
 interface ILayouts {
   children: ReactNode;
 }
 
-const layouts: FC<ILayouts> = ({ children }) => {
-  return <div>{children}</div>;
+const Layout: FC<ILayouts> = ({ children }) => {
+  return (
+    <>
+      <main id="app-container" className={styles["app-container"]}>
+        {children}
+      </main>
+    </>
+  );
 };
 
-export default layouts;
+export default Layout;

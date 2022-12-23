@@ -1,0 +1,5 @@
+
+.app-container {
+    /* App Layout Container Padding */
+    @apply lg:px-[80px] lg:py-[40px] md:px-[40px] md:py-[20px];
+}
