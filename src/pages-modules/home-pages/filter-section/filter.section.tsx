@@ -2,10 +2,10 @@ import { FC, FormEvent } from "react";
 import styles from "./filter.module.css";
 import TextInput from "@/components/input/text-input";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
-import Dropdown from "@/components/dropdown/dropdown";
 import Checkbox from "@/components/checkboxes/checkbox";
 import { IHospital } from "types/hospital.type";
 import { ISpecialization } from "types/specialization.type";
+import Dropdown from "@/components/dropdown/Dropdown";
 
 interface FilterSectionProps {
   filterValue: {

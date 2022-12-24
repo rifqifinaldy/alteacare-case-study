@@ -1,7 +1,7 @@
 import { FC } from "react";
 import styles from "./doctor.module.css";
-import Card from "@/components/card/card";
 import { IDoctors } from "types/doctor.type";
+import Card from "@/components/card/Card";
 
 // Doctor Section Props Type
 interface IDoctorSectionProps {
@@ -11,8 +11,6 @@ interface IDoctorSectionProps {
 
 // Doctor Section Component
 const DoctorSection: FC<IDoctorSectionProps> = ({ doctors, searchValue }) => {
-  console.log(doctors.length);
-
   // Handler if there's no records found
   if (doctors.length === 0) {
     return (

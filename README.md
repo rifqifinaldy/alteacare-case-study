@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Techincal Test - Rifqi Finaldy - Frontend Developer
+
+Project dibuat menggunakan React dan framework Next JS, dan di bootstrap oleh [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+disisi lain Styling yang digunakan menggunakan Tailwind CSS.
 
 ## Getting Started
 
 First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- clone repository
+- ubah file .env.example menjadi .env.local
+- jalankan perintah "npm install" atau "yarn" pada terminal untuk melakukan proses instalasi dependencies
+- setelah selesai terinstall jalankan perintah "npm run dev" atau "yarn dev" untuk menjalankan aplikasi secara lokal
+- secara default aplikasi akan berjalan pada localhost dengan port:3000 
+- buka browser dan kunjungi url http://localhost:3000 untuk melihat hasilnya
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Struktur Folder dan direktori-direktori pada aplikasi yang dibuat :
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Folder Config merupakan folder untuk menyimpan konfigurasi semua keperluan setup awal seperti melakukan setup axios instance dan penyimpanan endpoint-endpoint yang digunakan
+- Folder Public merupakan folder untuk menyimpan asset asset seperti logo maupun gambar yang bersifat statis
+- Folder Types menyimpan interface atau deklarasi type data yang dapat digunakan secara global
+- Folder SRC merupakan folder yang menyimpan fungsi dan component. Berikut merupakan penjelasan lebih rincinya :
+- SubFolder "components" menyimpan komponen / ui global yang dapat dipakai untuk seluruh applikasi. pada setiap component memiliki css.module tersendiri untuk digunakan hanya pada component tersebut
+- SubFolder "helpers" menyimpan fungsi fungsi penolong yang dapat digunakan secara global
+- SubFolder "layouts" menyimpan komponent layout yang merupakan struktur html dan css utama pembentuk UI dan halaman
+- SubFolder "pages" menyimpan komponen halaman dan sekaligus menjadi route / url yang digunakan aplikasi, pada komponen komponen ini juga dilakukan proses data interchange menggunakan axios secara server-side
