@@ -4,6 +4,6 @@ import { IMedia } from "./media.type";
 export interface IHospital {
   id: string;
   name: string;
-  icon: IMedia;
-  image: IMedia;
+  icon?: IMedia;
+  image?: IMedia;
 }

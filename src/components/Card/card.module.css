@@ -18,7 +18,7 @@
 
 .image {
     /* Width, Height and Position */
-    @appy object-contain w-100 relative;
+    @appy object-contain w-full relative;
     height: unset !important;
     position: relative !important;
 }
