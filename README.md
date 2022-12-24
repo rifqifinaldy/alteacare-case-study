@@ -5,8 +5,6 @@ disisi lain Styling yang digunakan menggunakan Tailwind CSS.
 
 ## Getting Started
 
-First, run the development server:
-
 - clone repository
 - ubah file .env.example menjadi .env.local
 - jalankan perintah "npm install" atau "yarn" pada terminal untuk melakukan proses instalasi dependencies
