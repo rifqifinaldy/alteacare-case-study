@@ -2,5 +2,5 @@
     /* Padding, Margin & Position */
     @apply p-2 mt-5;
     /* Layouts & Display */
-    @apply grid lg:grid-cols-3 md:grid-cols-2;
+    @apply grid lg:grid-cols-3 md:grid-cols-2 lg:gap-5 md:gap-3;
 }

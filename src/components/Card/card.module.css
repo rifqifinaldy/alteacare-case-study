@@ -1,0 +1,87 @@
+.card {
+    /* Margin */
+    @apply pt-3 px-4 pb-4;
+    /* Background Colors */
+    @apply bg-white;
+    /* Position, Shadow, Shape*/
+    @apply relative shadow-md rounded-md;
+}
+
+.card-content {
+    @apply flex;
+}
+
+.card-image-wrapper {
+    /* Width and Position */
+    @apply w-[35%] relative;
+}
+
+.image {
+    /* Width, Height and Position */
+    @appy object-contain w-100 relative;
+    height: unset !important;
+    position: relative !important;
+}
+
+.card-info-wrapper {
+    /* Width */
+    @apply w-[65%];
+    /* Margin, Display */
+    @apply p-3 flex flex-col items-center justify-center;
+}
+
+/* Card Name Text*/
+.card-info-wrapper h4 {
+    /* Thickness, Line height */
+    @apply font-semibold leading-tight;
+    /* Colors */
+    @apply text-dark;
+    /* Alignment */
+    @apply text-center mb-2;
+}
+
+/* Card Hospital Text*/
+.card-info-wrapper small {
+    /* Thickness, Sizes, Line height */
+    @apply font-light text-xs;
+    /* Colors */
+    @apply text-dark;
+    /* Alignment*/
+    @apply text-center;
+}
+
+/* Card Specialization Text */
+.card-info-wrapper span {
+    /* Thickness, Sizes, Line height */
+    @apply font-semibold text-xs;
+    /* Colors */
+    @apply text-primary;
+    /* Alignment*/
+    @apply text-center;
+}
+
+/* Card Description Title Text */
+.card-description-wrapper span {
+    /* Thickness, Sizes */
+    @apply text-sm font-light;
+    /* Colors  */
+    @apply text-dark;
+}
+
+/* Card Description Detail Text */
+.card-description-wrapper div {
+    /* Thickness, Sizes */
+    @apply text-xs;
+    /* Colors  */
+    @apply text-dark;
+}
+
+/* Card Price Badge */
+.card-price-badge {
+    /* Colors, Shape */
+    @apply bg-info rounded-full p-2 shadow-md;
+    /* Position */
+    @apply absolute top-[-10px] right-[-2px];
+    /* Text Style */
+    @apply text-light text-sm font-semibold;
+}

@@ -7,7 +7,8 @@ export interface IMediaFormats {
 }
 
 // Interface for Image, Icon Property
-export interface IMedia extends IMediaFormats {
+export interface IMedia {
+  formats: IMediaFormats;
   size_formatted: string;
   url: string;
 }

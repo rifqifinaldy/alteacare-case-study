@@ -1,6 +1,7 @@
 import { ICurrency } from "./currency.type";
 import { IHospital } from "./hospital.type";
 import { IMedia } from "./media.type";
+import { ISpecialization } from "./specialization.type";
 
 // Interface for Doctors
 
@@ -17,5 +18,5 @@ export interface IDoctors {
   price: ICurrency;
   sip: string;
   slug: string;
-  specialization: string;
+  specialization: ISpecialization;
 }

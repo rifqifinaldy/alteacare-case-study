@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { IDoctors } from "types/doctor.type";
 
 export async function getServerSideProps() {
-  // Data to reused for return function
+  // Data to be reused for return function
   let data, status;
   try {
     const result = await getDoctors();
@@ -37,7 +37,7 @@ export default function Home(props: { data: IDoctors[]; status: boolean }) {
     }
   }, [status]);
 
-  // UI's / Components
+  // Render UI's / Components
   return (
     <main id="home-page">
       {/* Home Page Sections */}
