@@ -1,0 +1,58 @@
+
+.input-group {
+    /* Width */
+    @apply w-full;
+    /* Display and Alignment */
+    @apply flex items-center;
+}
+
+/* Input Label tags */
+.input-label {
+    /* Size, Thickness */
+    @apply text-sm font-normal;
+    /* Margin */
+    @apply mr-1;
+    /* Colors */
+    @apply text-dark;
+}
+
+.input-wrapper {
+    /* Position */
+    @apply relative;
+    /* Shapes & Shadow */
+    @apply rounded-md shadow-sm;
+}
+
+/* Input Icons */
+.input-icon {
+    /* Position*/
+    @apply absolute left-0 inset-y-0 pl-3;
+    /* Display */
+    @apply flex items-center;
+    /* Pointer Event */
+    @apply pointer-events-none;
+}
+
+.input-icon svg {
+    /* Sizes */
+    @apply h-5 w-5;
+    /* Colors */
+    @apply text-gray-400;
+}
+
+/* Input Element */
+.input-element {
+    /* Display, Width */
+    @apply block w-full sm:text-sm;
+    /* Shape, Border, Shadow */
+    @apply rounded-md border-2 shadow-sm;
+    /* Transition */
+    @apply transition ease-in-out delay-100;
+}
+
+.input-element:focus {
+    /* Outline */
+    @apply outline-none;
+    /* Border */
+    @apply border-2 border-secondary;
+}
