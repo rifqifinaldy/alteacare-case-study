@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import styles from "./dropdown.module.css";
+import styles from "./dropdowns.module.css";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 interface DropdownProps {

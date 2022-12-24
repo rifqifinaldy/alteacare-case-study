@@ -5,7 +5,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import Checkbox from "@/components/checkboxes/checkbox";
 import { IHospital } from "types/hospital.type";
 import { ISpecialization } from "types/specialization.type";
-import Dropdown from "@/components/dropdown/Dropdown";
+import Dropdown from "@/components/dropdown/dropdowns";
 
 interface FilterSectionProps {
   filterValue: {

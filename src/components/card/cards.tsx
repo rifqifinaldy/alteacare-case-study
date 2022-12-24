@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FC } from "react";
-import styles from "./card.module.css";
+import styles from "./cards.module.css";
 
 interface ICardProps {
   image: string;
