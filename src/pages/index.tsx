@@ -2,7 +2,7 @@ import { getDoctors } from "@/config/endpoint/doctors/doctor";
 import { removeDuplicateBy } from "@/helpers/duplicate.remover";
 import DoctorSection from "@/homepages/doctor-section/doctor.section";
 import FilterSection from "@/homepages/filter-section/filter.section";
-import { useCallback, useEffect, useState } from "react";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 import { IDoctors } from "types/doctor.type";
 import { IHospital } from "types/hospital.type";
 import { ISpecialization } from "types/specialization.type";
@@ -33,7 +33,13 @@ export default function Home(props: { data: IDoctors[]; status: boolean }) {
   // Assign the server side data to client side for reactivity
   const [doctors, setDoctors] = useState<IDoctors[]>(data);
   const [hospitals, setHospitals] = useState<IHospital[]>([]);
-  const [specialization, setSpecialization] = useState<ISpecialization[]>([]);
+  const [specializations, setSpecializations] = useState<ISpecialization[]>([]);
+  // Filtered List Value
+  const [filterValue, setFilterValue] = useState<any>({
+    search: "",
+    hospitals: [],
+    specializations: [],
+  });
 
   // Add Error handler in an error has occured
   useEffect(() => {
@@ -42,51 +48,102 @@ export default function Home(props: { data: IDoctors[]; status: boolean }) {
     }
   }, [status]);
 
-  // Get Hospital List and Remove Duplicate Value By Calling removeDuplicateBy Function
-  const getHospitalList = useCallback((datas: IDoctors[]) => {
-    let tmpData = datas.map((doctor) => {
-      return {
-        id: doctor.hospital[0].id,
-        name: doctor.hospital[0].name,
-      };
-    });
-    let result = removeDuplicateBy(tmpData, "id");
-    return result;
-  }, []);
-
-  // Get Hospital List and Remove Duplicate Value By Calling removeDuplicateBy Function
-  const getSpecializationList = useCallback((datas: IDoctors[]) => {
-    let tmpData = datas.map((doctor) => {
+  const getMasterList = useCallback((datas: IDoctors[]) => {
+    let tmpFilterValue = { ...filterValue };
+    // Mutate Specialization Master from Available Doctors
+    let tmpSpecialization = datas.map((doctor) => {
       return {
         id: doctor.specialization.id,
         name: doctor.specialization.name,
       };
     });
-    let result = removeDuplicateBy(tmpData, "id");
-    return result;
-  }, []);
-
-  useEffect(() => {
-    setHospitals(getHospitalList(data));
-    setSpecialization(getSpecializationList(data));
+    // Mutate Hospitals Master from Available Doctors
+    let tmpHospitals = datas.map((doctor) => {
+      return {
+        id: doctor.hospital[0].id,
+        name: doctor.hospital[0].name,
+      };
+    });
+    // Remove Duplicate Keys Values By their ID
+    const resultSpecialization = removeDuplicateBy(tmpSpecialization, "id");
+    const resultHospitals = removeDuplicateBy(tmpHospitals, "id");
+    // Set State to render the master list
+    setSpecializations(resultSpecialization);
+    setHospitals(resultHospitals);
+    // Set Initial Filter Value for the checkbox
+    setFilterValue({
+      specializations: resultSpecialization.map((item) => item.name),
+      hospitals: resultHospitals.map((item) => item.name),
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Handle Filter
-  const handleFilter = (e: HTMLInputElement) => {
-    console.log(e);
+  useEffect(() => {
+    getMasterList(data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [getMasterList]);
+
+  // Handle Filter by Hospital
+  const onFilterByHospital = (e: FormEvent<HTMLInputElement>) => {
+    let tmpDoctors = [...doctors];
+    const tmpFilter = { ...filterValue };
+    if (e.currentTarget.checked === true) {
+      tmpFilter.hospitals.push(e.currentTarget.value);
+      tmpDoctors = data.filter((doctor) =>
+        filterValue.hospitals.includes(doctor.hospital[0].name)
+      );
+    } else if (e.currentTarget.checked === false) {
+      const index = filterValue.hospitals.indexOf(e.currentTarget.value);
+      tmpFilter.hospitals.splice(index, 1);
+      tmpDoctors = data.filter((doctor) =>
+        filterValue.hospitals.includes(doctor.hospital[0].name)
+      );
+    }
+    setFilterValue(tmpFilter);
+    setDoctors(tmpDoctors);
+  };
+
+  // Handle Filter by Specializations
+  const onFilterBySpecialization = (e: FormEvent<HTMLInputElement>) => {
+    let tmpDoctors = [...doctors];
+    const tmpFilter = { ...filterValue };
+    if (e.currentTarget.checked === true) {
+      tmpFilter.specializations.push(e.currentTarget.value);
+      tmpDoctors = data.filter((doctor) =>
+        filterValue.specializations.includes(doctor.specialization.name)
+      );
+    } else if (e.currentTarget.checked === false) {
+      const index = filterValue.specializations.indexOf(e.currentTarget.value);
+      tmpFilter.specializations.splice(index, 1);
+      tmpDoctors = data.filter((doctor) =>
+        filterValue.specializations.includes(doctor.specialization.name)
+      );
+    }
+    setFilterValue(tmpFilter);
+    setDoctors(tmpDoctors);
+  };
+
+  // On Search Function
+  const onSearch = (e: FormEvent<HTMLInputElement>) => {
+    let searchValue = e.currentTarget.value;
+    setFilterValue({ ...filterValue, search: searchValue });
   };
 
   // Render UI's / Components
   return (
     <main id="home-page">
       {/* Home Page Sections */}
+      {/* Filter Sections */}
       <FilterSection
+        filterValue={filterValue}
         hospitals={hospitals}
-        specialization={specialization}
-        handleFilter={handleFilter}
+        specializations={specializations}
+        onSearch={onSearch}
+        onFilterByHospital={onFilterByHospital}
+        onFilterBySpecialization={onFilterBySpecialization}
       />
-      <DoctorSection doctors={doctors} />
+      {/* Doctors Section */}
+      <DoctorSection searchValue={filterValue.search} doctors={doctors} />
     </main>
   );
 }

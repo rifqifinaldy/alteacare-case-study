@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, FormEvent } from "react";
 import styles from "./text-input.module.css";
 import { EnvelopeIcon } from "@heroicons/react/20/solid";
 
@@ -11,7 +11,7 @@ interface TextInputProps {
   label?: string;
   type: string;
   value?: string;
-  onChange?: () => void;
+  onChange?: (e: FormEvent<HTMLInputElement>) => void;
 }
 
 const TextInput: FC<TextInputProps> = ({
@@ -40,7 +40,7 @@ const TextInput: FC<TextInputProps> = ({
           id={id}
           name={name}
           type={type}
-          value={value}
+          value={value ? value : ""}
           onChange={onChange}
           className={
             `${styles["input-element"]}` +
