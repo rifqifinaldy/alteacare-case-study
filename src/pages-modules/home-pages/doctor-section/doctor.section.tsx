@@ -1,7 +1,7 @@
 import { FC } from "react";
 import styles from "./doctor.module.css";
 import { IDoctors } from "types/doctor.type";
-import Card from "@/components/card/card";
+import Card from "@/components/card/cards";
 
 // Doctor Section Props Type
 interface IDoctorSectionProps {
