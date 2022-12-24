@@ -18,5 +18,5 @@
 
 .filter-section-items {
     /* Display */
-    @apply flex justify-between;
+    @apply grid grid-cols-3 content-center;
 }
