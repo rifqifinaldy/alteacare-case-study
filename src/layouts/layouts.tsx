@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import styles from "./layout.module.css";
+import styles from "./layouts.module.css";
 
 interface ILayouts {
   children: ReactNode;
